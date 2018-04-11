@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<!--
+    Autor: Julio Bill Schvenger
+     Data: 11/04/2018
+-->
+<html>
+    <head>
+        <title>Botão Arrastar e Soltar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                font-family: "Trebuchet MS", Helvetica, sans-serif;
+            }
+            #base1, #base2 {
+                border-radius: 3%;
+                border: 1px solid black;
+                width: 80px;
+                height: 35px;
+                margin: 10px;
+                padding: 10px;
+            }
+            #botaoSoltar {
+                border-radius: 3%;
+                background-color: cornflowerblue;
+                text-align: center;
+                position: relative;
+                width: 78px;
+                height: 33px;
+                padding: 10px;
+                left: -11%;
+                top: -25%;
+            }
+            #botaoSoltar:hover {
+                background-color: darkturquoise;
+                transition-duration: 0.9s;
+            }
+            #botaoSoltar:active {
+                border: 2px solid darkturquoise;                
+                position: initial;
+                left: 0%;
+                top: 0%;                
+            }
+            
+
+        </style>
+
+        <script>
+            function arrastar(event) {
+                event.dataTransfer.setData("text", event.target.id);
+            }
+            function soltar(ev) {
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                ev.target.appendChild(document.getElementById(data));
+            }
+            function permitirSoltar(event) {
+                event.preventDefault();
+            }
+        </script>
+        
+    </head>
+    <body>
+        <h1>Botão (arrastar e soltar)</h1>
+        <div id="divCenter">
+            <div id="base1" 
+                 ondrop="soltar(event)" 
+                 ondragover="permitirSoltar(event)">
+                <div draggable="true" 
+                     ondragstart="arrastar(event)" 
+                     id="botaoSoltar"></div>
+            </div>
+            <div id="base2" 
+                 ondrop="soltar(event)" 
+                 ondragover="permitirSoltar(event)"></div>
+        </div>
+    </body>
+</html>
