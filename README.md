@@ -1,5 +1,4 @@
-"# botao-arrastar-soltar-css" 
-"# Botão em CSS com função de drag and drop"
+# botao-arrastar-soltar-css
 
 Este exercício eu fiz em homenagem à um antigo colega de trabalho que dizia que os maus programadores só sabiam programar arrastando e soltando. 
 
